@@ -8,8 +8,8 @@ public class estacionaria extends consola {
     private int almacenamiento;
     private String tipoDeConexion;
 
-    public estacionaria(int numControles, int almacenamiento, String tipoDeConexion, String identificacion, String fabricante, int aniosDeUso, double precio, ArrayList<juego> juegosDisponibles, String modelo) {
-        super(identificacion, fabricante, aniosDeUso, precio, juegosDisponibles, modelo);
+    public estacionaria(int numControles, int almacenamiento, String tipoDeConexion, String identificacion, String fabricante, int aniosDeUso, double precio, String modelo) {
+        super(identificacion, fabricante, aniosDeUso, precio, modelo);
         this.numControles = numControles;
         this.almacenamiento = almacenamiento;
         this.tipoDeConexion = tipoDeConexion;

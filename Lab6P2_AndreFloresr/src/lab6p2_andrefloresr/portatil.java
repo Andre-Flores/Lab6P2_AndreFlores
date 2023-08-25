@@ -8,8 +8,8 @@ public class portatil extends consola {
     private int bateria;
     private boolean estuche;
 
-    public portatil(String tamPantalla, int bateria, boolean estuche, String identificacion, String fabricante, int aniosDeUso, double precio, ArrayList<juego> juegosDisponibles, String modelo) {
-        super(identificacion, fabricante, aniosDeUso, precio, juegosDisponibles, modelo);
+    public portatil(String tamPantalla, int bateria, boolean estuche, String identificacion, String fabricante, int aniosDeUso, double precio, String modelo) {
+        super(identificacion, fabricante, aniosDeUso, precio, modelo);
         this.tamPantalla = tamPantalla;
         this.bateria = bateria;
         this.estuche = estuche;

@@ -12,12 +12,12 @@ public class consola {
     private ArrayList<juego> juegosDisponibles;
     private String modelo;
 
-    public consola(String identificacion, String fabricante, int aniosDeUso, double precio, ArrayList<juego> juegosDisponibles, String modelo) {
+    public consola(String identificacion, String fabricante, int aniosDeUso, double precio, String modelo) {
         this.identificacion = identificacion;
         this.fabricante = fabricante;
         this.aniosDeUso = aniosDeUso;
         this.precio = precio;
-        this.juegosDisponibles = juegosDisponibles;
+        this.juegosDisponibles = new ArrayList<juego>();
         this.modelo = modelo;
     }
 
