@@ -7,6 +7,155 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labeltipo" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="labelmodelo" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="labelprecio" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="labelanios" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="labelFabricante" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" pref="26" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="textfieldFabricante" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="textfieldModelo" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="textfieldPrecio" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="textfieldAnios" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="radiobotonPortatil" alignment="2" min="-2" pref="69" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="radiobotonEstacionaria" min="-2" pref="98" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                  <Component id="botonCrearConsola" min="-2" pref="135" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelFabricante" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldFabricante" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelanios" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldAnios" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelprecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelmodelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldModelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labeltipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radiobotonPortatil" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radiobotonEstacionaria" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="79" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="botonCrearConsola" min="-2" pref="68" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="labelFabricante">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fabricante"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldFabricante">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelanios">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Anios de uso"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldAnios">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelprecio">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Precio"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldPrecio">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelmodelo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modelo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldModelo">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labeltipo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radiobotonPortatil">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="botonesTipoConsola"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Portatil"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radiobotonEstacionaria">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="botonesTipoConsola"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Estacionaria"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radiobotonEstacionariaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonCrearConsola">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Crear consola"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botonCrearConsolaMouseClicked"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.ButtonGroup" name="botonesTipoConsola">
+    </Component>
+    <Container class="javax.swing.JDialog" name="paginaPortatil">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JDialog" name="paginaestacionaria">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
               <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -43,10 +192,10 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="jScrollPane1" alignment="2" min="-2" pref="478" max="-2" attributes="0"/>
                   <Component id="botonAgregarConsola" alignment="2" min="-2" pref="157" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

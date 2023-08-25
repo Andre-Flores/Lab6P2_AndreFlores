@@ -27,18 +27,128 @@ public class Tienda extends javax.swing.JFrame {
     private void initComponents() {
 
         paginaConsola = new javax.swing.JDialog();
+        labelFabricante = new javax.swing.JLabel();
+        textfieldFabricante = new javax.swing.JTextField();
+        labelanios = new javax.swing.JLabel();
+        textfieldAnios = new javax.swing.JTextField();
+        labelprecio = new javax.swing.JLabel();
+        textfieldPrecio = new javax.swing.JTextField();
+        labelmodelo = new javax.swing.JLabel();
+        textfieldModelo = new javax.swing.JTextField();
+        labeltipo = new javax.swing.JLabel();
+        radiobotonPortatil = new javax.swing.JRadioButton();
+        radiobotonEstacionaria = new javax.swing.JRadioButton();
+        botonCrearConsola = new javax.swing.JButton();
+        botonesTipoConsola = new javax.swing.ButtonGroup();
+        paginaPortatil = new javax.swing.JDialog();
+        paginaestacionaria = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaConsolas = new javax.swing.JTable();
         botonAgregarConsola = new javax.swing.JButton();
+
+        labelFabricante.setText("Fabricante");
+
+        labelanios.setText("Anios de uso");
+
+        labelprecio.setText("Precio");
+
+        labelmodelo.setText("Modelo");
+
+        labeltipo.setText("Tipo");
+
+        botonesTipoConsola.add(radiobotonPortatil);
+        radiobotonPortatil.setText("Portatil");
+
+        botonesTipoConsola.add(radiobotonEstacionaria);
+        radiobotonEstacionaria.setText("Estacionaria");
+        radiobotonEstacionaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radiobotonEstacionariaActionPerformed(evt);
+            }
+        });
+
+        botonCrearConsola.setText("Crear consola");
+        botonCrearConsola.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonCrearConsolaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout paginaConsolaLayout = new javax.swing.GroupLayout(paginaConsola.getContentPane());
         paginaConsola.getContentPane().setLayout(paginaConsolaLayout);
         paginaConsolaLayout.setHorizontalGroup(
             paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(paginaConsolaLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labeltipo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelanios, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 26, Short.MAX_VALUE)
+                .addGroup(paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(textfieldFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldAnios, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radiobotonPortatil, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(radiobotonEstacionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116)
+                .addComponent(botonCrearConsola, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         paginaConsolaLayout.setVerticalGroup(
             paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paginaConsolaLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFabricante)
+                    .addComponent(textfieldFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelanios)
+                    .addComponent(textfieldAnios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelprecio)
+                    .addComponent(textfieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelmodelo)
+                    .addComponent(textfieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labeltipo)
+                    .addComponent(radiobotonPortatil)
+                    .addComponent(radiobotonEstacionaria))
+                .addContainerGap(79, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paginaConsolaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonCrearConsola, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
+        );
+
+        javax.swing.GroupLayout paginaPortatilLayout = new javax.swing.GroupLayout(paginaPortatil.getContentPane());
+        paginaPortatil.getContentPane().setLayout(paginaPortatilLayout);
+        paginaPortatilLayout.setHorizontalGroup(
+            paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        paginaPortatilLayout.setVerticalGroup(
+            paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout paginaestacionariaLayout = new javax.swing.GroupLayout(paginaestacionaria.getContentPane());
+        paginaestacionaria.getContentPane().setLayout(paginaestacionariaLayout);
+        paginaestacionariaLayout.setHorizontalGroup(
+            paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        paginaestacionariaLayout.setVerticalGroup(
+            paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
@@ -79,9 +189,9 @@ public class Tienda extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(botonAgregarConsola, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonAgregarConsola, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,11 +210,44 @@ public class Tienda extends javax.swing.JFrame {
         crearConsola();
     }//GEN-LAST:event_botonAgregarConsolaActionPerformed
 
+    private void radiobotonEstacionariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobotonEstacionariaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radiobotonEstacionariaActionPerformed
+
+    private void botonCrearConsolaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearConsolaMouseClicked
+       String fabricante;
+       int aniosuso;
+       double precio;
+       String modelo;
+       fabricante = textfieldFabricante.getText();
+       aniosuso = Integer.parseInt(textfieldAnios.getText());
+       precio = Double.parseDouble(textfieldPrecio.getText());
+       modelo = textfieldModelo.getText();
+       if (radiobotonPortatil.isSelected()){
+           paginaportatil();
+       }else{
+           paginaestacionaria();
+       }
+       
+    }//GEN-LAST:event_botonCrearConsolaMouseClicked
+
     private void crearConsola() {
         paginaConsola.pack();
         paginaConsola.setModal(true);
         paginaConsola.setLocationRelativeTo(this);
         paginaConsola.setVisible(true);
+    }
+    private void paginaportatil(){
+        paginaPortatil.pack();
+        paginaPortatil.setModal(true);
+        paginaPortatil.setLocationRelativeTo(this);
+        paginaPortatil.setVisible(true);
+    }
+    private void paginaestacionaria(){
+        paginaestacionaria.pack();
+        paginaestacionaria.setModal(true);
+        paginaestacionaria.setLocationRelativeTo(this);
+        paginaestacionaria.setVisible(true);
     }
 
     /**
@@ -145,7 +288,22 @@ public class Tienda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaConsolas;
     private javax.swing.JButton botonAgregarConsola;
+    private javax.swing.JButton botonCrearConsola;
+    private javax.swing.ButtonGroup botonesTipoConsola;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelFabricante;
+    private javax.swing.JLabel labelanios;
+    private javax.swing.JLabel labelmodelo;
+    private javax.swing.JLabel labelprecio;
+    private javax.swing.JLabel labeltipo;
     private javax.swing.JDialog paginaConsola;
+    private javax.swing.JDialog paginaPortatil;
+    private javax.swing.JDialog paginaestacionaria;
+    private javax.swing.JRadioButton radiobotonEstacionaria;
+    private javax.swing.JRadioButton radiobotonPortatil;
+    private javax.swing.JTextField textfieldAnios;
+    private javax.swing.JTextField textfieldFabricante;
+    private javax.swing.JTextField textfieldModelo;
+    private javax.swing.JTextField textfieldPrecio;
     // End of variables declaration//GEN-END:variables
 }

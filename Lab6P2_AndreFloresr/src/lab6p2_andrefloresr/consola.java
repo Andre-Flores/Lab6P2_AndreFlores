@@ -1,6 +1,7 @@
 package lab6p2_andrefloresr;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class consola {
 
@@ -68,5 +69,25 @@ public class consola {
         this.modelo = modelo;
     }
 
-    
+    public String generarIdentificacion() {
+        String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String numeros = "0123456789";
+        StringBuilder identificacion = new StringBuilder();
+
+        Random random = new Random();
+
+        // Generar 4 numeros
+        for (int i = 0; i < 4; i++) {
+            int numIndex = random.nextInt(numeros.length());
+            identificacion.append(numeros.charAt(numIndex));
+        }
+
+        // Generar 4 letras
+        for (int i = 0; i < 4; i++) {
+            int letraIndex = random.nextInt(letras.length());
+            identificacion.append(letras.charAt(letraIndex));
+        }
+
+        return identificacion.toString();
+    }
 }
