@@ -26,21 +26,86 @@ public class Tienda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        paginaConsola = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaConsolas = new javax.swing.JTable();
+        botonAgregarConsola = new javax.swing.JButton();
+
+        javax.swing.GroupLayout paginaConsolaLayout = new javax.swing.GroupLayout(paginaConsola.getContentPane());
+        paginaConsola.getContentPane().setLayout(paginaConsolaLayout);
+        paginaConsolaLayout.setHorizontalGroup(
+            paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        paginaConsolaLayout.setVerticalGroup(
+            paginaConsolaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        TablaConsolas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Identificacion", "Fabricante", "Anios de uso", "Precio", "Modelo", "Tipo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TablaConsolas);
+
+        botonAgregarConsola.setText("Agregar Consola");
+        botonAgregarConsola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarConsolaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(botonAgregarConsola, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(botonAgregarConsola, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonAgregarConsolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarConsolaActionPerformed
+        crearConsola();
+    }//GEN-LAST:event_botonAgregarConsolaActionPerformed
+
+    private void crearConsola() {
+        paginaConsola.pack();
+        paginaConsola.setModal(true);
+        paginaConsola.setLocationRelativeTo(this);
+        paginaConsola.setVisible(true);
+    }
 
     /**
      * @param args the command line arguments
@@ -78,5 +143,9 @@ public class Tienda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaConsolas;
+    private javax.swing.JButton botonAgregarConsola;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JDialog paginaConsola;
     // End of variables declaration//GEN-END:variables
 }
