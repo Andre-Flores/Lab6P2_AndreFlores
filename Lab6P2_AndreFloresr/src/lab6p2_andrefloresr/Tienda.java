@@ -4,6 +4,7 @@
  */
 package lab6p2_andrefloresr;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -55,19 +56,20 @@ public class Tienda extends javax.swing.JFrame {
         rb_grande = new javax.swing.JRadioButton();
         textfieldBateria = new javax.swing.JTextField();
         botonTerminarPortatil = new javax.swing.JButton();
-        labelFabricante1 = new javax.swing.JLabel();
-        textfieldFabricante1 = new javax.swing.JTextField();
-        labelanios1 = new javax.swing.JLabel();
-        textfieldAnios1 = new javax.swing.JTextField();
-        labelprecio1 = new javax.swing.JLabel();
-        textfieldPrecio1 = new javax.swing.JTextField();
-        labelmodelo1 = new javax.swing.JLabel();
-        textfieldModelo1 = new javax.swing.JTextField();
-        labelIdentificacion1 = new javax.swing.JLabel();
-        textfieldIdentificacion1 = new javax.swing.JTextField();
         paginaestacionaria = new javax.swing.JDialog();
+        labelNumControles = new javax.swing.JLabel();
+        textfieldNumControles = new javax.swing.JTextField();
+        LabelAlmacenamiento = new javax.swing.JLabel();
+        textfieldAlmacenamiento = new javax.swing.JTextField();
+        labelTipoConexion = new javax.swing.JLabel();
+        textfieldTipoConexion = new javax.swing.JTextField();
+        botonestacionaria = new javax.swing.JButton();
         botonesEstuche = new javax.swing.ButtonGroup();
         botonesTamanio = new javax.swing.ButtonGroup();
+        popupmenuConsola = new javax.swing.JPopupMenu();
+        menuitemEliminar = new javax.swing.JMenuItem();
+        menuitemModificar = new javax.swing.JMenuItem();
+        menuitemVerJuegos = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaConsolas = new javax.swing.JTable();
         botonAgregarConsola = new javax.swing.JButton();
@@ -225,22 +227,6 @@ public class Tienda extends javax.swing.JFrame {
             }
         });
 
-        labelFabricante1.setText("Fabricante");
-
-        labelanios1.setText("Anios de uso");
-
-        labelprecio1.setText("Precio");
-
-        labelmodelo1.setText("Modelo");
-
-        labelIdentificacion1.setText("Identificacion");
-
-        textfieldIdentificacion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfieldIdentificacion1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout paginaPortatilLayout = new javax.swing.GroupLayout(paginaPortatil.getContentPane());
         paginaPortatil.getContentPane().setLayout(paginaPortatilLayout);
         paginaPortatilLayout.setHorizontalGroup(
@@ -251,7 +237,7 @@ public class Tienda extends javax.swing.JFrame {
                         .addGap(179, 179, 179)
                         .addComponent(botonTerminarPortatil, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(paginaPortatilLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(29, 29, 29)
                         .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(paginaPortatilLayout.createSequentialGroup()
                                 .addComponent(labelEstuche)
@@ -260,27 +246,9 @@ public class Tienda extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rb_NoEstuche, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(paginaPortatilLayout.createSequentialGroup()
-                                .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(paginaPortatilLayout.createSequentialGroup()
-                                        .addComponent(labelIdentificacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(textfieldIdentificacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(labelDuracionBateria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelTamanioPantalla, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paginaPortatilLayout.createSequentialGroup()
-                                        .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelmodelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labelprecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labelanios1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 26, Short.MAX_VALUE)
-                                        .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(textfieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(textfieldPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(textfieldAnios1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paginaPortatilLayout.createSequentialGroup()
-                                        .addComponent(labelFabricante1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(textfieldFabricante1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelDuracionBateria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelTamanioPantalla, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(paginaPortatilLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -292,32 +260,12 @@ public class Tienda extends javax.swing.JFrame {
                                     .addGroup(paginaPortatilLayout.createSequentialGroup()
                                         .addGap(15, 15, 15)
                                         .addComponent(textfieldBateria, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         paginaPortatilLayout.setVerticalGroup(
             paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paginaPortatilLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdentificacion1)
-                    .addComponent(textfieldIdentificacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelFabricante1)
-                    .addComponent(textfieldFabricante1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelanios1)
-                    .addComponent(textfieldAnios1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelprecio1)
-                    .addComponent(textfieldPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelmodelo1)
-                    .addComponent(textfieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addGroup(paginaPortatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTamanioPantalla)
                     .addComponent(rb_pequenio)
@@ -332,21 +280,96 @@ public class Tienda extends javax.swing.JFrame {
                     .addComponent(labelEstuche)
                     .addComponent(rb_SiEstuche)
                     .addComponent(rb_NoEstuche))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                 .addComponent(botonTerminarPortatil, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
+
+        labelNumControles.setText("Numero de controles");
+
+        textfieldNumControles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldNumControlesActionPerformed(evt);
+            }
+        });
+
+        LabelAlmacenamiento.setText("Almacenamiento de la consola");
+
+        textfieldAlmacenamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldAlmacenamientoActionPerformed(evt);
+            }
+        });
+
+        labelTipoConexion.setText("Tipo de conexion");
+
+        textfieldTipoConexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldTipoConexionActionPerformed(evt);
+            }
+        });
+
+        botonestacionaria.setText("Finalizar Creacion");
+        botonestacionaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonestacionariaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout paginaestacionariaLayout = new javax.swing.GroupLayout(paginaestacionaria.getContentPane());
         paginaestacionaria.getContentPane().setLayout(paginaestacionariaLayout);
         paginaestacionariaLayout.setHorizontalGroup(
             paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(paginaestacionariaLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNumControles)
+                    .addComponent(LabelAlmacenamiento)
+                    .addComponent(labelTipoConexion))
+                .addGap(18, 18, 18)
+                .addGroup(paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(textfieldTipoConexion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldAlmacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldNumControles, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(159, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paginaestacionariaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonestacionaria)
+                .addGap(15, 15, 15))
         );
         paginaestacionariaLayout.setVerticalGroup(
             paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(paginaestacionariaLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNumControles)
+                    .addComponent(textfieldNumControles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelAlmacenamiento)
+                    .addComponent(textfieldAlmacenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(paginaestacionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelTipoConexion)
+                    .addComponent(textfieldTipoConexion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(botonestacionaria, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        menuitemEliminar.setText("Eliminar");
+        menuitemEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuitemEliminarActionPerformed(evt);
+            }
+        });
+        popupmenuConsola.add(menuitemEliminar);
+
+        menuitemModificar.setText("Modificar");
+        popupmenuConsola.add(menuitemModificar);
+
+        menuitemVerJuegos.setText("jMenuItem1");
+        popupmenuConsola.add(menuitemVerJuegos);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -373,6 +396,11 @@ public class Tienda extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TablaConsolas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaConsolasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaConsolas);
 
         botonAgregarConsola.setText("Agregar Consola");
@@ -387,23 +415,22 @@ public class Tienda extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(botonAgregarConsola, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(220, 220, 220)
+                .addComponent(botonAgregarConsola, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(botonAgregarConsola, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addComponent(botonAgregarConsola, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
 
         pack();
@@ -465,11 +492,11 @@ public class Tienda extends javax.swing.JFrame {
        int aniosuso;
        double precio;
        String modelo;
-       identificacion = textfieldIdentificacion1.getText();
-       fabricante = textfieldFabricante1.getText();
-       aniosuso = Integer.parseInt(textfieldAnios1.getText());
-       precio = Double.parseDouble(textfieldPrecio1.getText());
-       modelo = textfieldModelo1.getText();
+       identificacion = textfieldIdentificacion.getText();
+       fabricante = textfieldFabricante.getText();
+       aniosuso = Integer.parseInt(textfieldAnios.getText());
+       precio = Double.parseDouble(textfieldPrecio.getText());
+       modelo = textfieldModelo.getText();
        int duracionBateria;
         if (rb_pequenio.isSelected()){
            tamanio = "pequenio";
@@ -490,13 +517,72 @@ public class Tienda extends javax.swing.JFrame {
         TablaConsolas.setModel(modelotabla);
     }//GEN-LAST:event_botonTerminarPortatilMouseClicked
 
-    private void textfieldIdentificacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldIdentificacion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textfieldIdentificacion1ActionPerformed
-
     private void textfieldIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldIdentificacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textfieldIdentificacionActionPerformed
+
+    private void textfieldNumControlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldNumControlesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldNumControlesActionPerformed
+
+    private void textfieldAlmacenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldAlmacenamientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldAlmacenamientoActionPerformed
+
+    private void textfieldTipoConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldTipoConexionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldTipoConexionActionPerformed
+
+    private void botonestacionariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonestacionariaActionPerformed
+        DefaultTableModel modelotabla= (DefaultTableModel) TablaConsolas.getModel();
+        String identificacion = "";
+       String fabricante;
+       int aniosuso;
+       double precio;
+       String modelo;
+       identificacion = textfieldIdentificacion.getText();
+       fabricante = textfieldFabricante.getText();
+       aniosuso = Integer.parseInt(textfieldAnios.getText());
+       precio = Double.parseDouble(textfieldPrecio.getText());
+       modelo = textfieldModelo.getText();
+        int numControles;
+        int almacenamiento;
+        String tipoConexion;
+        numControles = Integer.parseInt(textfieldNumControles.getText());
+        almacenamiento = Integer.parseInt(textfieldAlmacenamiento.getText());
+        tipoConexion = textfieldTipoConexion.getText();
+        estacionaria e = new estacionaria(numControles, almacenamiento, tipoConexion, identificacion, fabricante, aniosuso, precio, modelo);
+        Object [] fila = {identificacion,fabricante,aniosuso,precio,modelo,"Estacionaria" ,null,null,null,numControles, almacenamiento,tipoConexion};
+        modelotabla.addRow(fila);
+        TablaConsolas.setModel(modelotabla);
+    }//GEN-LAST:event_botonestacionariaActionPerformed
+
+    private void TablaConsolasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaConsolasMouseClicked
+        
+        if (TablaConsolas.getSelectedRow() >= 0) {
+            if (evt.isMetaDown()) {
+                popupmenuConsola.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_TablaConsolasMouseClicked
+
+    private void menuitemEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemEliminarActionPerformed
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Seguro de Eliminar?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {
+            DefaultTableModel m
+                    = (DefaultTableModel) TablaConsolas.getModel();
+            m.removeRow(TablaConsolas.getSelectedRow());
+            TablaConsolas.setModel(m);
+        }
+    }//GEN-LAST:event_menuitemEliminarActionPerformed
 
     private void crearConsola() {
         paginaConsola.pack();
@@ -553,6 +639,7 @@ public class Tienda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelAlmacenamiento;
     private javax.swing.JTable TablaConsolas;
     private javax.swing.JButton botonAgregarConsola;
     private javax.swing.JButton botonCrearConsola;
@@ -560,24 +647,26 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.ButtonGroup botonesEstuche;
     private javax.swing.ButtonGroup botonesTamanio;
     private javax.swing.ButtonGroup botonesTipoConsola;
+    private javax.swing.JButton botonestacionaria;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelDuracionBateria;
     private javax.swing.JLabel labelEstuche;
     private javax.swing.JLabel labelFabricante;
-    private javax.swing.JLabel labelFabricante1;
     private javax.swing.JLabel labelIdentificacion;
-    private javax.swing.JLabel labelIdentificacion1;
+    private javax.swing.JLabel labelNumControles;
     private javax.swing.JLabel labelTamanioPantalla;
+    private javax.swing.JLabel labelTipoConexion;
     private javax.swing.JLabel labelanios;
-    private javax.swing.JLabel labelanios1;
     private javax.swing.JLabel labelmodelo;
-    private javax.swing.JLabel labelmodelo1;
     private javax.swing.JLabel labelprecio;
-    private javax.swing.JLabel labelprecio1;
     private javax.swing.JLabel labeltipo;
+    private javax.swing.JMenuItem menuitemEliminar;
+    private javax.swing.JMenuItem menuitemModificar;
+    private javax.swing.JMenuItem menuitemVerJuegos;
     private javax.swing.JDialog paginaConsola;
     private javax.swing.JDialog paginaPortatil;
     private javax.swing.JDialog paginaestacionaria;
+    private javax.swing.JPopupMenu popupmenuConsola;
     private javax.swing.JRadioButton radiobotonEstacionaria;
     private javax.swing.JRadioButton radiobotonPortatil;
     private javax.swing.JRadioButton rb_NoEstuche;
@@ -585,16 +674,14 @@ public class Tienda extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_grande;
     private javax.swing.JRadioButton rb_mediano;
     private javax.swing.JRadioButton rb_pequenio;
+    private javax.swing.JTextField textfieldAlmacenamiento;
     private javax.swing.JTextField textfieldAnios;
-    private javax.swing.JTextField textfieldAnios1;
     private javax.swing.JTextField textfieldBateria;
     private javax.swing.JTextField textfieldFabricante;
-    private javax.swing.JTextField textfieldFabricante1;
     private javax.swing.JTextField textfieldIdentificacion;
-    private javax.swing.JTextField textfieldIdentificacion1;
     private javax.swing.JTextField textfieldModelo;
-    private javax.swing.JTextField textfieldModelo1;
+    private javax.swing.JTextField textfieldNumControles;
     private javax.swing.JTextField textfieldPrecio;
-    private javax.swing.JTextField textfieldPrecio1;
+    private javax.swing.JTextField textfieldTipoConexion;
     // End of variables declaration//GEN-END:variables
 }
