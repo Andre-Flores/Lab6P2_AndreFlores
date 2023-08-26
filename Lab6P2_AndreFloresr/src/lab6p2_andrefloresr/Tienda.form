@@ -423,6 +423,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuitemModificarActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="menuitemVerJuegos">
           <Properties>
@@ -431,6 +434,325 @@
         </MenuItem>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JDialog" name="paginaModificar">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="labelIdentificacion1" min="-2" pref="78" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="labeltipo1" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="labelmodelo1" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="labelprecio1" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="labelanios1" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="labelFabricante1" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" pref="26" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="2" attributes="0">
+                              <Component id="textfieldFabricante1" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="textfieldModelo1" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="textfieldPrecio1" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="textfieldAnios1" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="radiobotonPortatil1" alignment="2" min="-2" pref="69" max="-2" attributes="0"/>
+                              <Component id="textfieldIdentificacion1" alignment="2" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="radiobotonEstacionaria1" min="-2" pref="98" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                          <Component id="botonCrearConsola1" min="-2" pref="135" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="labelIdentificacion1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldIdentificacion1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelFabricante1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldFabricante1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelanios1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldAnios1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelprecio1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldPrecio1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelmodelo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldModelo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labeltipo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radiobotonPortatil1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radiobotonEstacionaria1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="82" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="botonCrearConsola1" min="-2" pref="68" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="labelFabricante1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fabricante"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldFabricante1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelanios1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Anios de uso"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldAnios1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelprecio1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Precio"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldPrecio1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelmodelo1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modelo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldModelo1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labeltipo1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radiobotonPortatil1">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupotipo1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Portatil"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radiobotonEstacionaria1">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupotipo1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Estacionaria"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radiobotonEstacionaria1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonCrearConsola1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modificar Consola"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botonCrearConsola1MouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelIdentificacion1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Identificacion"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldIdentificacion1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfieldIdentificacion1ActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.ButtonGroup" name="grupotipo1">
+    </Component>
+    <Container class="javax.swing.JDialog" name="modificarportatil">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                          <Component id="botonTerminarPortatil1" min="-2" pref="165" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelEstuche1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="rb_SiEstuche1" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="rb_NoEstuche1" min="-2" pref="98" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="labelDuracionBateria1" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="labelTamanioPantalla1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="rb_pequenio1" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Component id="rb_mediano1" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="rb_grande1" min="-2" pref="98" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                          <Component id="textfieldBateria1" min="-2" pref="71" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelTamanioPantalla1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rb_pequenio1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rb_mediano1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rb_grande1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelDuracionBateria1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldBateria1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelEstuche1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rb_SiEstuche1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rb_NoEstuche1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="223" max="32767" attributes="0"/>
+                  <Component id="botonTerminarPortatil1" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="labelTamanioPantalla1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="tamanio de la pantalla"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelDuracionBateria1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Duracion de la bateria"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelEstuche1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lleva estuche?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rb_SiEstuche1">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoModifEstuche"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Si"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rb_SiEstuche1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rb_NoEstuche1">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoModifEstuche"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="No"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rb_NoEstuche1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rb_pequenio1">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoModifTamanio"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="pequenio"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rb_mediano1">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoModifTamanio"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="mediano"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rb_grande1">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoModifTamanio"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="grande"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rb_grande1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="textfieldBateria1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfieldBateria1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonTerminarPortatil1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Finalizar Modificacion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botonTerminarPortatil1MouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonTerminarPortatil1ActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.ButtonGroup" name="grupoModifEstuche">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoModifTamanio">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>

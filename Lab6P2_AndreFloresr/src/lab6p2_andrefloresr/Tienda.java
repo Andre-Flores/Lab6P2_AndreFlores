@@ -4,6 +4,7 @@
  */
 package lab6p2_andrefloresr;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -70,6 +71,35 @@ public class Tienda extends javax.swing.JFrame {
         menuitemEliminar = new javax.swing.JMenuItem();
         menuitemModificar = new javax.swing.JMenuItem();
         menuitemVerJuegos = new javax.swing.JMenuItem();
+        paginaModificar = new javax.swing.JDialog();
+        labelFabricante1 = new javax.swing.JLabel();
+        textfieldFabricante1 = new javax.swing.JTextField();
+        labelanios1 = new javax.swing.JLabel();
+        textfieldAnios1 = new javax.swing.JTextField();
+        labelprecio1 = new javax.swing.JLabel();
+        textfieldPrecio1 = new javax.swing.JTextField();
+        labelmodelo1 = new javax.swing.JLabel();
+        textfieldModelo1 = new javax.swing.JTextField();
+        labeltipo1 = new javax.swing.JLabel();
+        radiobotonPortatil1 = new javax.swing.JRadioButton();
+        radiobotonEstacionaria1 = new javax.swing.JRadioButton();
+        botonCrearConsola1 = new javax.swing.JButton();
+        labelIdentificacion1 = new javax.swing.JLabel();
+        textfieldIdentificacion1 = new javax.swing.JTextField();
+        grupotipo1 = new javax.swing.ButtonGroup();
+        modificarportatil = new javax.swing.JDialog();
+        labelTamanioPantalla1 = new javax.swing.JLabel();
+        labelDuracionBateria1 = new javax.swing.JLabel();
+        labelEstuche1 = new javax.swing.JLabel();
+        rb_SiEstuche1 = new javax.swing.JRadioButton();
+        rb_NoEstuche1 = new javax.swing.JRadioButton();
+        rb_pequenio1 = new javax.swing.JRadioButton();
+        rb_mediano1 = new javax.swing.JRadioButton();
+        rb_grande1 = new javax.swing.JRadioButton();
+        textfieldBateria1 = new javax.swing.JTextField();
+        botonTerminarPortatil1 = new javax.swing.JButton();
+        grupoModifEstuche = new javax.swing.ButtonGroup();
+        grupoModifTamanio = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaConsolas = new javax.swing.JTable();
         botonAgregarConsola = new javax.swing.JButton();
@@ -366,10 +396,229 @@ public class Tienda extends javax.swing.JFrame {
         popupmenuConsola.add(menuitemEliminar);
 
         menuitemModificar.setText("Modificar");
+        menuitemModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuitemModificarActionPerformed(evt);
+            }
+        });
         popupmenuConsola.add(menuitemModificar);
 
         menuitemVerJuegos.setText("jMenuItem1");
         popupmenuConsola.add(menuitemVerJuegos);
+
+        labelFabricante1.setText("Fabricante");
+
+        labelanios1.setText("Anios de uso");
+
+        labelprecio1.setText("Precio");
+
+        labelmodelo1.setText("Modelo");
+
+        labeltipo1.setText("Tipo");
+
+        grupotipo1.add(radiobotonPortatil1);
+        radiobotonPortatil1.setText("Portatil");
+
+        grupotipo1.add(radiobotonEstacionaria1);
+        radiobotonEstacionaria1.setText("Estacionaria");
+        radiobotonEstacionaria1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radiobotonEstacionaria1ActionPerformed(evt);
+            }
+        });
+
+        botonCrearConsola1.setText("Modificar Consola");
+        botonCrearConsola1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonCrearConsola1MouseClicked(evt);
+            }
+        });
+
+        labelIdentificacion1.setText("Identificacion");
+
+        textfieldIdentificacion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldIdentificacion1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout paginaModificarLayout = new javax.swing.GroupLayout(paginaModificar.getContentPane());
+        paginaModificar.getContentPane().setLayout(paginaModificarLayout);
+        paginaModificarLayout.setHorizontalGroup(
+            paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paginaModificarLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paginaModificarLayout.createSequentialGroup()
+                        .addComponent(labelIdentificacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(paginaModificarLayout.createSequentialGroup()
+                        .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labeltipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelmodelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelprecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelanios1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelFabricante1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 26, Short.MAX_VALUE)
+                        .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(textfieldFabricante1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textfieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textfieldPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textfieldAnios1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radiobotonPortatil1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textfieldIdentificacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(radiobotonEstacionaria1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116)
+                        .addComponent(botonCrearConsola1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))))
+        );
+        paginaModificarLayout.setVerticalGroup(
+            paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paginaModificarLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelIdentificacion1)
+                    .addComponent(textfieldIdentificacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFabricante1)
+                    .addComponent(textfieldFabricante1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelanios1)
+                    .addComponent(textfieldAnios1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelprecio1)
+                    .addComponent(textfieldPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelmodelo1)
+                    .addComponent(textfieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(paginaModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labeltipo1)
+                    .addComponent(radiobotonPortatil1)
+                    .addComponent(radiobotonEstacionaria1))
+                .addContainerGap(82, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paginaModificarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonCrearConsola1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
+        );
+
+        labelTamanioPantalla1.setText("tamanio de la pantalla");
+
+        labelDuracionBateria1.setText("Duracion de la bateria");
+
+        labelEstuche1.setText("Lleva estuche?");
+
+        grupoModifEstuche.add(rb_SiEstuche1);
+        rb_SiEstuche1.setText("Si");
+        rb_SiEstuche1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_SiEstuche1ActionPerformed(evt);
+            }
+        });
+
+        grupoModifEstuche.add(rb_NoEstuche1);
+        rb_NoEstuche1.setText("No");
+        rb_NoEstuche1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_NoEstuche1ActionPerformed(evt);
+            }
+        });
+
+        grupoModifTamanio.add(rb_pequenio1);
+        rb_pequenio1.setText("pequenio");
+
+        grupoModifTamanio.add(rb_mediano1);
+        rb_mediano1.setText("mediano");
+
+        grupoModifTamanio.add(rb_grande1);
+        rb_grande1.setText("grande");
+        rb_grande1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_grande1ActionPerformed(evt);
+            }
+        });
+
+        textfieldBateria1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldBateria1ActionPerformed(evt);
+            }
+        });
+
+        botonTerminarPortatil1.setText("Finalizar Modificacion");
+        botonTerminarPortatil1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonTerminarPortatil1MouseClicked(evt);
+            }
+        });
+        botonTerminarPortatil1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTerminarPortatil1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificarportatilLayout = new javax.swing.GroupLayout(modificarportatil.getContentPane());
+        modificarportatil.getContentPane().setLayout(modificarportatilLayout);
+        modificarportatilLayout.setHorizontalGroup(
+            modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificarportatilLayout.createSequentialGroup()
+                .addGroup(modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificarportatilLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(botonTerminarPortatil1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(modificarportatilLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(modificarportatilLayout.createSequentialGroup()
+                                .addComponent(labelEstuche1)
+                                .addGap(18, 18, 18)
+                                .addComponent(rb_SiEstuche1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rb_NoEstuche1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(modificarportatilLayout.createSequentialGroup()
+                                .addGroup(modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelDuracionBateria1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelTamanioPantalla1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGroup(modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(modificarportatilLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rb_pequenio1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(rb_mediano1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rb_grande1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(modificarportatilLayout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(textfieldBateria1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+        modificarportatilLayout.setVerticalGroup(
+            modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificarportatilLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTamanioPantalla1)
+                    .addComponent(rb_pequenio1)
+                    .addComponent(rb_mediano1)
+                    .addComponent(rb_grande1))
+                .addGap(54, 54, 54)
+                .addGroup(modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDuracionBateria1)
+                    .addComponent(textfieldBateria1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(modificarportatilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEstuche1)
+                    .addComponent(rb_SiEstuche1)
+                    .addComponent(rb_NoEstuche1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
+                .addComponent(botonTerminarPortatil1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -445,22 +694,22 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_radiobotonEstacionariaActionPerformed
 
     private void botonCrearConsolaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearConsolaMouseClicked
-       String identificacion;
+        String identificacion;
         String fabricante;
-       int aniosuso;
-       double precio;
-       String modelo;
-       identificacion = textfieldIdentificacion.getText();
-       fabricante = textfieldFabricante.getText();
-       aniosuso = Integer.parseInt(textfieldAnios.getText());
-       precio = Double.parseDouble(textfieldPrecio.getText());
-       modelo = textfieldModelo.getText();
-       if (radiobotonPortatil.isSelected()){
-           paginaportatil();
-       }else{
-           paginaestacionaria();
-       }
-       
+        int aniosuso;
+        double precio;
+        String modelo;
+        identificacion = textfieldIdentificacion.getText();
+        fabricante = textfieldFabricante.getText();
+        aniosuso = Integer.parseInt(textfieldAnios.getText());
+        precio = Double.parseDouble(textfieldPrecio.getText());
+        modelo = textfieldModelo.getText();
+        if (radiobotonPortatil.isSelected()) {
+            paginaportatil();
+        } else {
+            paginaestacionaria();
+        }
+
     }//GEN-LAST:event_botonCrearConsolaMouseClicked
 
     private void rb_SiEstucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_SiEstucheActionPerformed
@@ -484,37 +733,38 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonTerminarPortatilActionPerformed
 
     private void botonTerminarPortatilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonTerminarPortatilMouseClicked
-       DefaultTableModel modelotabla= (DefaultTableModel) TablaConsolas.getModel();
+        DefaultTableModel modelotabla = (DefaultTableModel) TablaConsolas.getModel();
         String tamanio = "";
-       boolean estuche = false;
-       String identificacion = "";
-       String fabricante;
-       int aniosuso;
-       double precio;
-       String modelo;
-       identificacion = textfieldIdentificacion.getText();
-       fabricante = textfieldFabricante.getText();
-       aniosuso = Integer.parseInt(textfieldAnios.getText());
-       precio = Double.parseDouble(textfieldPrecio.getText());
-       modelo = textfieldModelo.getText();
-       int duracionBateria;
-        if (rb_pequenio.isSelected()){
-           tamanio = "pequenio";
-       } else if(rb_mediano.isSelected()){
-           tamanio = "mediano";
-       } else if(rb_grande.isSelected()){
-           tamanio = "grande";
-       }
+        boolean estuche = false;
+        String identificacion = "";
+        String fabricante;
+        int aniosuso;
+        double precio;
+        String modelo;
+        identificacion = textfieldIdentificacion.getText();
+        fabricante = textfieldFabricante.getText();
+        aniosuso = Integer.parseInt(textfieldAnios.getText());
+        precio = Double.parseDouble(textfieldPrecio.getText());
+        modelo = textfieldModelo.getText();
+        int duracionBateria;
+        if (rb_pequenio.isSelected()) {
+            tamanio = "pequenio";
+        } else if (rb_mediano.isSelected()) {
+            tamanio = "mediano";
+        } else if (rb_grande.isSelected()) {
+            tamanio = "grande";
+        }
         duracionBateria = Integer.parseInt(textfieldBateria.getText());
-        if(rb_SiEstuche.isSelected()){
+        if (rb_SiEstuche.isSelected()) {
             estuche = true;
-        } else{
+        } else {
             estuche = false;
         }
         portatil p = new portatil(tamanio, duracionBateria, estuche, identificacion, fabricante, aniosuso, precio, modelo);
-        Object [] fila = {identificacion,fabricante,aniosuso,precio,modelo,"portatil" ,tamanio,duracionBateria, estuche};
+        Object[] fila = {identificacion, fabricante, aniosuso, precio, modelo, "portatil", tamanio, duracionBateria, estuche};
         modelotabla.addRow(fila);
         TablaConsolas.setModel(modelotabla);
+        consolas.add(p);
     }//GEN-LAST:event_botonTerminarPortatilMouseClicked
 
     private void textfieldIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldIdentificacionActionPerformed
@@ -534,17 +784,17 @@ public class Tienda extends javax.swing.JFrame {
     }//GEN-LAST:event_textfieldTipoConexionActionPerformed
 
     private void botonestacionariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonestacionariaActionPerformed
-        DefaultTableModel modelotabla= (DefaultTableModel) TablaConsolas.getModel();
+        DefaultTableModel modelotabla = (DefaultTableModel) TablaConsolas.getModel();
         String identificacion = "";
-       String fabricante;
-       int aniosuso;
-       double precio;
-       String modelo;
-       identificacion = textfieldIdentificacion.getText();
-       fabricante = textfieldFabricante.getText();
-       aniosuso = Integer.parseInt(textfieldAnios.getText());
-       precio = Double.parseDouble(textfieldPrecio.getText());
-       modelo = textfieldModelo.getText();
+        String fabricante;
+        int aniosuso;
+        double precio;
+        String modelo;
+        identificacion = textfieldIdentificacion.getText();
+        fabricante = textfieldFabricante.getText();
+        aniosuso = Integer.parseInt(textfieldAnios.getText());
+        precio = Double.parseDouble(textfieldPrecio.getText());
+        modelo = textfieldModelo.getText();
         int numControles;
         int almacenamiento;
         String tipoConexion;
@@ -552,13 +802,13 @@ public class Tienda extends javax.swing.JFrame {
         almacenamiento = Integer.parseInt(textfieldAlmacenamiento.getText());
         tipoConexion = textfieldTipoConexion.getText();
         estacionaria e = new estacionaria(numControles, almacenamiento, tipoConexion, identificacion, fabricante, aniosuso, precio, modelo);
-        Object [] fila = {identificacion,fabricante,aniosuso,precio,modelo,"Estacionaria" ,null,null,null,numControles, almacenamiento,tipoConexion};
+        Object[] fila = {identificacion, fabricante, aniosuso, precio, modelo, "Estacionaria", null, null, null, numControles, almacenamiento, tipoConexion};
         modelotabla.addRow(fila);
         TablaConsolas.setModel(modelotabla);
     }//GEN-LAST:event_botonestacionariaActionPerformed
 
     private void TablaConsolasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaConsolasMouseClicked
-        
+
         if (TablaConsolas.getSelectedRow() >= 0) {
             if (evt.isMetaDown()) {
                 popupmenuConsola.show(evt.getComponent(),
@@ -584,23 +834,132 @@ public class Tienda extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuitemEliminarActionPerformed
 
+    private void menuitemModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemModificarActionPerformed
+        paginamodificar();
+    }//GEN-LAST:event_menuitemModificarActionPerformed
+
+    private void radiobotonEstacionaria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobotonEstacionaria1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radiobotonEstacionaria1ActionPerformed
+
+    private void botonCrearConsola1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonCrearConsola1MouseClicked
+        String identificacion;
+        String fabricante;
+        int aniosuso;
+        double precio;
+        String modelo;
+        identificacion = textfieldIdentificacion1.getText();
+        fabricante = textfieldFabricante1.getText();
+        aniosuso = Integer.parseInt(textfieldAnios1.getText());
+        precio = Double.parseDouble(textfieldPrecio1.getText());
+        modelo = textfieldModelo1.getText();
+        if (radiobotonPortatil1.isSelected()) {
+            modificarportatil();
+        } else {
+
+        }
+    }//GEN-LAST:event_botonCrearConsola1MouseClicked
+
+    private void textfieldIdentificacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldIdentificacion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldIdentificacion1ActionPerformed
+
+    private void rb_SiEstuche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_SiEstuche1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb_SiEstuche1ActionPerformed
+
+    private void rb_NoEstuche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_NoEstuche1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb_NoEstuche1ActionPerformed
+
+    private void rb_grande1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_grande1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rb_grande1ActionPerformed
+
+    private void textfieldBateria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldBateria1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldBateria1ActionPerformed
+
+    private void botonTerminarPortatil1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonTerminarPortatil1MouseClicked
+        DefaultTableModel modelotabla = (DefaultTableModel) TablaConsolas.getModel();
+        String tamanio = "";
+        boolean estuche = false;
+        String identificacion = "";
+        String fabricante;
+        int aniosuso;
+        double precio;
+        String modelo;
+        identificacion = textfieldIdentificacion1.getText();
+        fabricante = textfieldFabricante1.getText();
+        aniosuso = Integer.parseInt(textfieldAnios1.getText());
+        precio = Double.parseDouble(textfieldPrecio1.getText());
+        modelo = textfieldModelo1.getText();
+        int duracionBateria;
+        if (rb_pequenio1.isSelected()) {
+            tamanio = "pequenio";
+        } else if (rb_mediano1.isSelected()) {
+            tamanio = "mediano";
+        } else if (rb_grande1.isSelected()) {
+            tamanio = "grande";
+        }
+        duracionBateria = Integer.parseInt(textfieldBateria1.getText());
+        if (rb_SiEstuche1.isSelected()) {
+            estuche = true;
+        } else {
+            estuche = false;
+        }
+        portatil p;
+        p = (portatil) consolas.get(TablaConsolas.getSelectedRow());
+        p.setIdentificacion(identificacion);
+        p.setAniosDeUso(aniosuso);
+        p.setBateria(duracionBateria);
+        p.setEstuche(estuche);
+        p.setTamPantalla(tamanio);
+        p.setModelo(modelo);
+        p.setPrecio(precio);
+        p.setFabricante(fabricante);
+        consolas.set(TablaConsolas.getSelectedRow(), p);
+        
+        TablaConsolas.setModel(modelotabla);
+    }//GEN-LAST:event_botonTerminarPortatil1MouseClicked
+
+    private void botonTerminarPortatil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTerminarPortatil1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonTerminarPortatil1ActionPerformed
+
     private void crearConsola() {
         paginaConsola.pack();
         paginaConsola.setModal(true);
         paginaConsola.setLocationRelativeTo(this);
         paginaConsola.setVisible(true);
     }
-    private void paginaportatil(){
+
+    private void paginaportatil() {
         paginaPortatil.pack();
         paginaPortatil.setModal(true);
         paginaPortatil.setLocationRelativeTo(this);
         paginaPortatil.setVisible(true);
     }
-    private void paginaestacionaria(){
+
+    private void paginaestacionaria() {
         paginaestacionaria.pack();
         paginaestacionaria.setModal(true);
         paginaestacionaria.setLocationRelativeTo(this);
         paginaestacionaria.setVisible(true);
+    }
+
+    private void paginamodificar() {
+        paginaModificar.pack();
+        paginaModificar.setModal(true);
+        paginaModificar.setLocationRelativeTo(this);
+        paginaModificar.setVisible(true);
+    }
+
+    private void modificarportatil() {
+        modificarportatil.pack();
+        modificarportatil.setModal(true);
+        modificarportatil.setLocationRelativeTo(this);
+        modificarportatil.setVisible(true);
     }
 
     /**
@@ -637,51 +996,80 @@ public class Tienda extends javax.swing.JFrame {
             }
         });
     }
-
+    ArrayList<consola> consolas = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelAlmacenamiento;
     private javax.swing.JTable TablaConsolas;
     private javax.swing.JButton botonAgregarConsola;
     private javax.swing.JButton botonCrearConsola;
+    private javax.swing.JButton botonCrearConsola1;
     private javax.swing.JButton botonTerminarPortatil;
+    private javax.swing.JButton botonTerminarPortatil1;
     private javax.swing.ButtonGroup botonesEstuche;
     private javax.swing.ButtonGroup botonesTamanio;
     private javax.swing.ButtonGroup botonesTipoConsola;
     private javax.swing.JButton botonestacionaria;
+    private javax.swing.ButtonGroup grupoModifEstuche;
+    private javax.swing.ButtonGroup grupoModifTamanio;
+    private javax.swing.ButtonGroup grupotipo1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelDuracionBateria;
+    private javax.swing.JLabel labelDuracionBateria1;
     private javax.swing.JLabel labelEstuche;
+    private javax.swing.JLabel labelEstuche1;
     private javax.swing.JLabel labelFabricante;
+    private javax.swing.JLabel labelFabricante1;
     private javax.swing.JLabel labelIdentificacion;
+    private javax.swing.JLabel labelIdentificacion1;
     private javax.swing.JLabel labelNumControles;
     private javax.swing.JLabel labelTamanioPantalla;
+    private javax.swing.JLabel labelTamanioPantalla1;
     private javax.swing.JLabel labelTipoConexion;
     private javax.swing.JLabel labelanios;
+    private javax.swing.JLabel labelanios1;
     private javax.swing.JLabel labelmodelo;
+    private javax.swing.JLabel labelmodelo1;
     private javax.swing.JLabel labelprecio;
+    private javax.swing.JLabel labelprecio1;
     private javax.swing.JLabel labeltipo;
+    private javax.swing.JLabel labeltipo1;
     private javax.swing.JMenuItem menuitemEliminar;
     private javax.swing.JMenuItem menuitemModificar;
     private javax.swing.JMenuItem menuitemVerJuegos;
+    private javax.swing.JDialog modificarportatil;
     private javax.swing.JDialog paginaConsola;
+    private javax.swing.JDialog paginaModificar;
     private javax.swing.JDialog paginaPortatil;
     private javax.swing.JDialog paginaestacionaria;
     private javax.swing.JPopupMenu popupmenuConsola;
     private javax.swing.JRadioButton radiobotonEstacionaria;
+    private javax.swing.JRadioButton radiobotonEstacionaria1;
     private javax.swing.JRadioButton radiobotonPortatil;
+    private javax.swing.JRadioButton radiobotonPortatil1;
     private javax.swing.JRadioButton rb_NoEstuche;
+    private javax.swing.JRadioButton rb_NoEstuche1;
     private javax.swing.JRadioButton rb_SiEstuche;
+    private javax.swing.JRadioButton rb_SiEstuche1;
     private javax.swing.JRadioButton rb_grande;
+    private javax.swing.JRadioButton rb_grande1;
     private javax.swing.JRadioButton rb_mediano;
+    private javax.swing.JRadioButton rb_mediano1;
     private javax.swing.JRadioButton rb_pequenio;
+    private javax.swing.JRadioButton rb_pequenio1;
     private javax.swing.JTextField textfieldAlmacenamiento;
     private javax.swing.JTextField textfieldAnios;
+    private javax.swing.JTextField textfieldAnios1;
     private javax.swing.JTextField textfieldBateria;
+    private javax.swing.JTextField textfieldBateria1;
     private javax.swing.JTextField textfieldFabricante;
+    private javax.swing.JTextField textfieldFabricante1;
     private javax.swing.JTextField textfieldIdentificacion;
+    private javax.swing.JTextField textfieldIdentificacion1;
     private javax.swing.JTextField textfieldModelo;
+    private javax.swing.JTextField textfieldModelo1;
     private javax.swing.JTextField textfieldNumControles;
     private javax.swing.JTextField textfieldPrecio;
+    private javax.swing.JTextField textfieldPrecio1;
     private javax.swing.JTextField textfieldTipoConexion;
     // End of variables declaration//GEN-END:variables
 }
