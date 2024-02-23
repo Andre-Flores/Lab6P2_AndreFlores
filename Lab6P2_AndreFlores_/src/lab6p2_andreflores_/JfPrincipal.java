@@ -67,6 +67,9 @@ public class JfPrincipal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         MenuPopupEliminar = new javax.swing.JPopupMenu();
         Eliminar = new javax.swing.JMenuItem();
+        ppMenu_Jugadores = new javax.swing.JPopupMenu();
+        Modificar = new javax.swing.JMenuItem();
+        Eliminar_Jugador = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         btn_equipos = new javax.swing.JButton();
@@ -222,6 +225,11 @@ public class JfPrincipal extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(153, 153, 255));
 
         listaJugadores.setModel(new DefaultListModel());
+        listaJugadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaJugadoresMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(listaJugadores);
 
         jButton1.setText("Transferir ---->");
@@ -310,7 +318,28 @@ public class JfPrincipal extends javax.swing.JFrame {
         );
 
         Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
         MenuPopupEliminar.add(Eliminar);
+
+        Modificar.setText("Modificar jugador");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
+        ppMenu_Jugadores.add(Modificar);
+
+        Eliminar_Jugador.setText("Eliminar jugador");
+        Eliminar_Jugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Eliminar_JugadorActionPerformed(evt);
+            }
+        });
+        ppMenu_Jugadores.add(Eliminar_Jugador);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -515,7 +544,7 @@ public class JfPrincipal extends javax.swing.JFrame {
         DefaultMutableTreeNode nodo_pais;
         nodo_pais = new DefaultMutableTreeNode(equipo.getPaisEquipo());
         DefaultMutableTreeNode nodo_equipo;
-        nodo_equipo = new DefaultMutableTreeNode(equipo.getNombreEquipo());
+        nodo_equipo = new DefaultMutableTreeNode(equipo);
         raiz.add(nodo_pais);
         nodo_pais.add(nodo_equipo);
 
@@ -533,9 +562,12 @@ public class JfPrincipal extends javax.swing.JFrame {
         modelo.addElement(new Jugador(tf_NombreJugador.getText(), (Integer) sp_Edad.getValue(), (String) cb_Posicion.getSelectedItem()));
         sp_Edad.setValue(15);
         tf_NombreJugador.setText("");
+        JOptionPane.showMessageDialog(jd_Jugadores, "Jugador Agregado");
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_AgregarJugadorMouseClicked
+    private void agregarJugadorAlEquipo() {
 
+    }
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         // TODO add your handling code here:
@@ -543,21 +575,69 @@ public class JfPrincipal extends javax.swing.JFrame {
 
     private void arbolEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolEquiposMouseClicked
         if (evt.getButton() == 3) {
-            int row = arbolEquipos.getClosestRowForLocation(evt.getX(), evt.getY());
-            arbolEquipos.setSelectionRow(row);
+
             DefaultMutableTreeNode v1 = (DefaultMutableTreeNode) arbolEquipos.getLastSelectedPathComponent();
-            
+
             if (v1.getUserObject() instanceof Equipo) {
-                System.out.println(v1.toString());
-//                equipo_Seleccionado = (Equipo) nodo_seleccionado.getUserObject();
-//                MenuPopupEliminar.show(evt.getComponent(), evt.getX(), evt.getY());
-            } else {
-                System.out.println("wnfiw");
+                MenuPopupEliminar.show(evt.getComponent(), evt.getX(), evt.getY());
+
             }
         }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_arbolEquiposMouseClicked
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+
+        int response = JOptionPane.showConfirmDialog(
+                jd_Transferencias,
+                "Seguro de Eliminar?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {
+            DefaultTreeModel m
+                    = (DefaultTreeModel) arbolEquipos.getModel();
+            m.removeNodeFromParent((MutableTreeNode) arbolEquipos.getLastSelectedPathComponent());
+            m.reload();
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarActionPerformed
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        if (listaJugadores.getSelectedIndex() >= 0) {
+            DefaultListModel modeloLISTA = (DefaultListModel) listaJugadores.getModel();
+            ((Jugador) modeloLISTA.get(listaJugadores.getSelectedIndex())).setNombreJugador(JOptionPane.showInputDialog("nombre"));
+
+            listaJugadores.setModel(modeloLISTA);
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void listaJugadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaJugadoresMouseClicked
+        if (listaJugadores.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                ppMenu_Jugadores.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+
+        }
+    }//GEN-LAST:event_listaJugadoresMouseClicked
+
+    private void Eliminar_JugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_JugadorActionPerformed
+        if (listaJugadores.getSelectedIndex() >= 0) {
+            int jugadorseleccionado = listaJugadores.getSelectedIndex();
+            DefaultListModel modeloLISTA = (DefaultListModel) listaJugadores.getModel();
+            modeloLISTA.remove(jugadorseleccionado);
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Eliminar_JugadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -604,7 +684,9 @@ public class JfPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JMenuItem Eliminar_Jugador;
     private javax.swing.JPopupMenu MenuPopupEliminar;
+    private javax.swing.JMenuItem Modificar;
     private javax.swing.JTree arbolEquipos;
     private javax.swing.JButton btn_AgregarEquipo;
     private javax.swing.JButton btn_AgregarJugador;
@@ -646,6 +728,7 @@ public class JfPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_Jugadores;
     private javax.swing.JDialog jd_Transferencias;
     private javax.swing.JList<String> listaJugadores;
+    private javax.swing.JPopupMenu ppMenu_Jugadores;
     private javax.swing.JSpinner sp_Edad;
     private javax.swing.JTextField tf_Ciudad;
     private javax.swing.JTextField tf_Estadio;
