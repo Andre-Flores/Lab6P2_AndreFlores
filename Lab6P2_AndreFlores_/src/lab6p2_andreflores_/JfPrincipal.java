@@ -53,8 +53,8 @@ public class JfPrincipal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         cb_Posicion = new javax.swing.JComboBox<>();
         tf_NombreJugador = new javax.swing.JTextField();
-        tf_Edad = new javax.swing.JTextField();
         btn_AgregarJugador = new javax.swing.JButton();
+        sp_Edad = new javax.swing.JSpinner();
         jd_Transferencias = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -65,6 +65,8 @@ public class JfPrincipal extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        MenuPopupEliminar = new javax.swing.JPopupMenu();
+        Eliminar = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         btn_equipos = new javax.swing.JButton();
@@ -156,6 +158,8 @@ public class JfPrincipal extends javax.swing.JFrame {
             }
         });
 
+        sp_Edad.setModel(new javax.swing.SpinnerNumberModel(15, 15, 45, 1));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -173,9 +177,9 @@ public class JfPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel10))
                         .addGap(59, 59, 59)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tf_NombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cb_Posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cb_Posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sp_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(209, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -194,7 +198,7 @@ public class JfPrincipal extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(tf_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sp_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(70, 70, 70)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -221,9 +225,19 @@ public class JfPrincipal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listaJugadores);
 
         jButton1.setText("Transferir ---->");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Equipos");
         arbolEquipos.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbolEquipos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbolEquiposMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(arbolEquipos);
 
         jLabel12.setBackground(new java.awt.Color(153, 255, 204));
@@ -294,6 +308,9 @@ public class JfPrincipal extends javax.swing.JFrame {
             jd_TransferenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        Eliminar.setText("Eliminar");
+        MenuPopupEliminar.add(Eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -503,19 +520,44 @@ public class JfPrincipal extends javax.swing.JFrame {
         nodo_pais.add(nodo_equipo);
 
         tf_PaisEquipo.setText("");
-        tf_NombreJugador.setText("");
+
         tf_NombreEquipo.setText("");
         tf_Estadio.setText("");
-        tf_Edad.setText("");
+
         tf_Ciudad.setText("");
     }//GEN-LAST:event_btn_AgregarEquipoMouseClicked
 
     private void btn_AgregarJugadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarJugadorMouseClicked
+        DefaultListModel modelo = (DefaultListModel) listaJugadores.getModel();
 
-
-
+        modelo.addElement(new Jugador(tf_NombreJugador.getText(), (Integer) sp_Edad.getValue(), (String) cb_Posicion.getSelectedItem()));
+        sp_Edad.setValue(15);
+        tf_NombreJugador.setText("");
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_AgregarJugadorMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void arbolEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolEquiposMouseClicked
+        if (evt.getButton() == 3) {
+            int row = arbolEquipos.getClosestRowForLocation(evt.getX(), evt.getY());
+            arbolEquipos.setSelectionRow(row);
+            DefaultMutableTreeNode v1 = (DefaultMutableTreeNode) arbolEquipos.getLastSelectedPathComponent();
+            
+            if (v1.getUserObject() instanceof Equipo) {
+                System.out.println(v1.toString());
+//                equipo_Seleccionado = (Equipo) nodo_seleccionado.getUserObject();
+//                MenuPopupEliminar.show(evt.getComponent(), evt.getX(), evt.getY());
+            } else {
+                System.out.println("wnfiw");
+            }
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_arbolEquiposMouseClicked
 
     /**
      * @param args the command line arguments
@@ -561,6 +603,8 @@ public class JfPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JPopupMenu MenuPopupEliminar;
     private javax.swing.JTree arbolEquipos;
     private javax.swing.JButton btn_AgregarEquipo;
     private javax.swing.JButton btn_AgregarJugador;
@@ -602,13 +646,15 @@ public class JfPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_Jugadores;
     private javax.swing.JDialog jd_Transferencias;
     private javax.swing.JList<String> listaJugadores;
+    private javax.swing.JSpinner sp_Edad;
     private javax.swing.JTextField tf_Ciudad;
-    private javax.swing.JTextField tf_Edad;
     private javax.swing.JTextField tf_Estadio;
     private javax.swing.JTextField tf_NombreEquipo;
     private javax.swing.JTextField tf_NombreJugador;
     private javax.swing.JTextField tf_PaisEquipo;
     // End of variables declaration//GEN-END:variables
     ArrayList<Equipo> equipos = new ArrayList();
-
+    DefaultMutableTreeNode nodo_seleccionado;
+    Jugador jugador_Seleccionado;
+    Equipo equipo_Seleccionado;
 }

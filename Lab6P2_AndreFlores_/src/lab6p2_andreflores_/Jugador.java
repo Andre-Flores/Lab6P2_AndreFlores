@@ -3,10 +3,10 @@ package lab6p2_andreflores_;
 public class Jugador {
 
     private String nombreJugador;
-    private String edad;
+    private int edad;
     private String posicion;
 
-    public Jugador(String nombreJugador, String edad, String posicion) {
+    public Jugador(String nombreJugador, int edad, String posicion) {
         this.nombreJugador = nombreJugador;
         this.edad = edad;
         this.posicion = posicion;
@@ -20,11 +20,11 @@ public class Jugador {
         this.nombreJugador = nombreJugador;
     }
 
-    public String getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
@@ -38,7 +38,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "nombre del jugador: " + nombreJugador + ", edad: " + edad + ", posicion: " + posicion;
+        return nombreJugador;
     }
 
 }
