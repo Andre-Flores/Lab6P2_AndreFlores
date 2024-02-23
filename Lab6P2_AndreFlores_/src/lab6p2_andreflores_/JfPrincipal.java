@@ -6,8 +6,10 @@ package lab6p2_andreflores_;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 
 /**
  *
@@ -52,6 +54,7 @@ public class JfPrincipal extends javax.swing.JFrame {
         cb_Posicion = new javax.swing.JComboBox<>();
         tf_NombreJugador = new javax.swing.JTextField();
         tf_Edad = new javax.swing.JTextField();
+        btn_AgregarJugador = new javax.swing.JButton();
         jd_Transferencias = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -145,6 +148,14 @@ public class JfPrincipal extends javax.swing.JFrame {
 
         cb_Posicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Portero", "Defensa", "Mediocampista", "Delantero" }));
 
+        btn_AgregarJugador.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_AgregarJugador.setText("Agregar");
+        btn_AgregarJugador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_AgregarJugadorMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -166,6 +177,10 @@ public class JfPrincipal extends javax.swing.JFrame {
                             .addComponent(tf_NombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cb_Posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(209, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_AgregarJugador)
+                .addGap(252, 252, 252))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +199,9 @@ public class JfPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(cb_Posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(btn_AgregarJugador)
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout jd_JugadoresLayout = new javax.swing.GroupLayout(jd_Jugadores.getContentPane());
@@ -472,9 +489,33 @@ public class JfPrincipal extends javax.swing.JFrame {
 
         equipos.add(new Equipo(tf_PaisEquipo.getText(), tf_NombreEquipo.getText(), tf_Ciudad.getText(), tf_Estadio.getText()));
 
-        
-        
+        DefaultTreeModel m = (DefaultTreeModel) arbolEquipos.getModel();
+
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+
+        Equipo equipo = new Equipo(tf_PaisEquipo.getText(),
+                tf_NombreEquipo.getText(), tf_Ciudad.getText(), tf_Estadio.getText());
+        DefaultMutableTreeNode nodo_pais;
+        nodo_pais = new DefaultMutableTreeNode(equipo.getPaisEquipo());
+        DefaultMutableTreeNode nodo_equipo;
+        nodo_equipo = new DefaultMutableTreeNode(equipo.getNombreEquipo());
+        raiz.add(nodo_pais);
+        nodo_pais.add(nodo_equipo);
+
+        tf_PaisEquipo.setText("");
+        tf_NombreJugador.setText("");
+        tf_NombreEquipo.setText("");
+        tf_Estadio.setText("");
+        tf_Edad.setText("");
+        tf_Ciudad.setText("");
     }//GEN-LAST:event_btn_AgregarEquipoMouseClicked
+
+    private void btn_AgregarJugadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarJugadorMouseClicked
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AgregarJugadorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -490,16 +531,24 @@ public class JfPrincipal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -514,6 +563,7 @@ public class JfPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTree arbolEquipos;
     private javax.swing.JButton btn_AgregarEquipo;
+    private javax.swing.JButton btn_AgregarJugador;
     private javax.swing.JButton btn_Jugadores;
     private javax.swing.JButton btn_equipos;
     private javax.swing.JButton btn_transferencias;
