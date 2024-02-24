@@ -61,7 +61,7 @@ public class JfPrincipal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaJugadores = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        btn_Transferir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         arbolEquipos = new javax.swing.JTree();
         jLabel12 = new javax.swing.JLabel();
@@ -234,10 +234,10 @@ public class JfPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listaJugadores);
 
-        jButton1.setText("Transferir ---->");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Transferir.setText("Transferir ---->");
+        btn_Transferir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btn_TransferirMouseClicked(evt);
             }
         });
 
@@ -271,7 +271,7 @@ public class JfPrincipal extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btn_Transferir)
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
@@ -294,7 +294,7 @@ public class JfPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btn_Transferir)
                         .addGap(251, 251, 251))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -549,6 +549,7 @@ public class JfPrincipal extends javax.swing.JFrame {
         nodo_equipo = new DefaultMutableTreeNode(equipo);
         raiz.add(nodo_pais);
         nodo_pais.add(nodo_equipo);
+        JOptionPane.showMessageDialog(jd_Equipos, "Equipo Agregado");
 
         tf_PaisEquipo.setText("");
 
@@ -560,18 +561,53 @@ public class JfPrincipal extends javax.swing.JFrame {
 
     private void btn_AgregarJugadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarJugadorMouseClicked
         DefaultListModel modelo = (DefaultListModel) listaJugadores.getModel();
+        String nombre;
+        if (!tf_NombreJugador.getText().matches("[a-zA-Z]+")) {
+            JOptionPane.showMessageDialog(jd_Jugadores, "el nombre del jugador tiene caracteres invalidos");
 
-        modelo.addElement(new Jugador(tf_NombreJugador.getText(), (Integer) sp_Edad.getValue(), (String) cb_Posicion.getSelectedItem()));
+        } else {
+            modelo.addElement(new Jugador(tf_NombreJugador.getText(), (Integer) sp_Edad.getValue(), (String) cb_Posicion.getSelectedItem()));
+            JOptionPane.showMessageDialog(jd_Jugadores, "Jugador Agregado");
+
+        }
+
         sp_Edad.setValue(15);
         tf_NombreJugador.setText("");
-        JOptionPane.showMessageDialog(jd_Jugadores, "Jugador Agregado");
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_AgregarJugadorMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btn_TransferirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_TransferirMouseClicked
+        boolean ya = false;
+        if (listaJugadores.getSelectedIndex() >= 0 && arbolEquipos.getSelectionPath() != null) {
+            DefaultTreeModel m = (DefaultTreeModel) arbolEquipos.getModel();
+            DefaultListModel modeloLISTA = (DefaultListModel) listaJugadores.getModel();
+            jugador_Seleccionado = (Jugador) modeloLISTA.getElementAt(listaJugadores.getSelectedIndex());
+            nodo_seleccionado = (DefaultMutableTreeNode) arbolEquipos.getSelectionPath().getLastPathComponent();
+            if (nodo_seleccionado.getUserObject() instanceof Equipo) {
+                for (int i = 0; i < nodo_seleccionado.getChildCount(); i++) {
+                    DefaultMutableTreeNode nodoPosicion = (DefaultMutableTreeNode) nodo_seleccionado.getChildAt(i);
+                    if (nodoPosicion.getUserObject().equals(jugador_Seleccionado.getPosicion())) {
+                        DefaultMutableTreeNode nodoJugador = new DefaultMutableTreeNode(jugador_Seleccionado);
+                        nodoPosicion.add(nodoJugador);
+                        ya = true;
+                        break;
+                    }
+                }
+                if (!ya) {
+                    DefaultMutableTreeNode nodoPosicion = new DefaultMutableTreeNode(jugador_Seleccionado.getPosicion());
+                    DefaultMutableTreeNode nodoJugador = new DefaultMutableTreeNode(jugador_Seleccionado);
+                    nodoPosicion.add(nodoJugador);
+                    nodo_seleccionado.add(nodoPosicion);
+                    
+                }
+                
+                m.reload(nodo_seleccionado);
+                JOptionPane.showMessageDialog(jd_Transferencias, "jugador transferido");
+            }
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+        }
+
+    }//GEN-LAST:event_btn_TransferirMouseClicked
 
     private void arbolEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolEquiposMouseClicked
         if (evt.getButton() == 3) {
@@ -701,10 +737,10 @@ public class JfPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_AgregarEquipo;
     private javax.swing.JButton btn_AgregarJugador;
     private javax.swing.JButton btn_Jugadores;
+    private javax.swing.JButton btn_Transferir;
     private javax.swing.JButton btn_equipos;
     private javax.swing.JButton btn_transferencias;
     private javax.swing.JComboBox<String> cb_Posicion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
