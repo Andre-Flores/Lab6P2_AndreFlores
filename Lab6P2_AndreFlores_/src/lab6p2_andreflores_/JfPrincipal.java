@@ -5,6 +5,8 @@
 package lab6p2_andreflores_;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -565,9 +567,7 @@ public class JfPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(jd_Jugadores, "Jugador Agregado");
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_AgregarJugadorMouseClicked
-    private void agregarJugadorAlEquipo() {
 
-    }
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         // TODO add your handling code here:
@@ -609,10 +609,20 @@ public class JfPrincipal extends javax.swing.JFrame {
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
         if (listaJugadores.getSelectedIndex() >= 0) {
             DefaultListModel modeloLISTA = (DefaultListModel) listaJugadores.getModel();
-            ((Jugador) modeloLISTA.get(listaJugadores.getSelectedIndex())).setNombreJugador(JOptionPane.showInputDialog("nombre"));
+            String nombre;
+            do {
+                nombre = JOptionPane.showInputDialog("Ingrese su nombre:");
+            } while (!nombre.matches("[a-zA-Z]+"));
 
-            listaJugadores.setModel(modeloLISTA);
+            String EdadVString;
+            int edad;
+            do {
+                EdadVString = JOptionPane.showInputDialog("Ingrese su edad:");
+            } while (!EdadVString.matches("\\d+"));
+            edad = Integer.parseInt(EdadVString);
 
+            ((Jugador) modeloLISTA.get(listaJugadores.getSelectedIndex())).setNombreJugador(nombre);
+            ((Jugador) modeloLISTA.get(listaJugadores.getSelectedIndex())).setEdad(edad);
         }
 
         // TODO add your handling code here:
