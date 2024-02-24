@@ -598,9 +598,9 @@ public class JfPrincipal extends javax.swing.JFrame {
                     DefaultMutableTreeNode nodoJugador = new DefaultMutableTreeNode(jugador_Seleccionado);
                     nodoPosicion.add(nodoJugador);
                     nodo_seleccionado.add(nodoPosicion);
-                    
+
                 }
-                
+
                 m.reload(nodo_seleccionado);
                 JOptionPane.showMessageDialog(jd_Transferencias, "jugador transferido");
             }
@@ -611,12 +611,17 @@ public class JfPrincipal extends javax.swing.JFrame {
 
     private void arbolEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolEquiposMouseClicked
         if (evt.getButton() == 3) {
+            if (evt.isMetaDown()) {
+                //seleccionar un nodo con click derecho
+                int row = arbolEquipos.getClosestRowForLocation(
+                        evt.getX(), evt.getY());
+                arbolEquipos.setSelectionRow(row);
+                DefaultMutableTreeNode v1 = (DefaultMutableTreeNode) arbolEquipos.getLastSelectedPathComponent();
 
-            DefaultMutableTreeNode v1 = (DefaultMutableTreeNode) arbolEquipos.getLastSelectedPathComponent();
+                if (v1.getUserObject() instanceof Equipo) {
+                    MenuPopupEliminar.show(evt.getComponent(), evt.getX(), evt.getY());
 
-            if (v1.getUserObject() instanceof Equipo) {
-                MenuPopupEliminar.show(evt.getComponent(), evt.getX(), evt.getY());
-
+                }
             }
         }
 
