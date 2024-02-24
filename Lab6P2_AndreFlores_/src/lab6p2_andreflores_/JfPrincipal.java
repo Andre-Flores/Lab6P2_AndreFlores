@@ -541,8 +541,7 @@ public class JfPrincipal extends javax.swing.JFrame {
 
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
 
-        Equipo equipo = new Equipo(tf_PaisEquipo.getText(),
-                tf_NombreEquipo.getText(), tf_Ciudad.getText(), tf_Estadio.getText());
+        Equipo equipo = new Equipo(tf_PaisEquipo.getText(), tf_NombreEquipo.getText(), tf_Ciudad.getText(), tf_Estadio.getText());
         DefaultMutableTreeNode nodo_pais;
         nodo_pais = new DefaultMutableTreeNode(equipo.getPaisEquipo());
         DefaultMutableTreeNode nodo_equipo;
